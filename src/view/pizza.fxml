@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import bonus.PizzaView?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+        fx:controller="controller.PizzaController"
+        alignment="center" spacing="10"
+        styleClass="root"
+        >
+    
+    <HBox spacing="10" alignment="center_left" styleClass="header">
+        
+        <ImageView>
+            <image><Image url="/view/pizzeria.png"/></image>
+        </ImageView>
+        <Text styleClass="heading" text="Create pizza" />
+    </HBox>
+    
+    <HBox spacing="10" alignment="center" styleClass="body">
+        <VBox spacing="10" alignment="center">
+            <HBox spacing="10" alignment="center">
+                <VBox spacing="10">
+                    <Text styleClass="big" text="Available" />
+                    <ListView fx:id="kitchenLv" prefWidth="200" prefHeight="250">
+                        <placeholder>
+                        <Label text="No ingredients available"/>
+                        </placeholder>
+                    </ListView>
+                </VBox>
+                <VBox spacing="10" alignment="center">
+                    <Button fx:id="addBtn" onAction="#handleAdd" disable="true"/>
+                    <Button fx:id="removeBtn" onAction="#handleRemove"/>
+                </VBox>
+                <VBox spacing="10">
+                    <Text styleClass="big" text="Selected" />
+                    <ListView fx:id="ingredientsLv" prefWidth="200" prefHeight="250">
+                        <placeholder>
+                        <Label text="No ingredients on pizza"/>
+                        </placeholder>
+                    </ListView>
+                </VBox>
+                <VBox spacing="10" alignment="center">
+                    <Text styleClass="big"/>
+                    <StackPane fx:id="pizzaSp" prefWidth="250"/>
+                </VBox>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Price:" />
+                <Text fx:id="priceTxt" />
+            </HBox>
+            <Text fx:id="message"/>
+        </VBox>
+    </HBox>
+    
+    <HBox spacing="10" alignment="center" styleClass="footer">
+        <Button fx:id="cancelBtn" text="Cancel" onAction="#handleCancel"/>
+        <Button fx:id="createBtn" text="Create" onAction="#handleCreate"/>
+    </HBox>
+
+    <stylesheets><URL value="@style.css"/></stylesheets>
+</VBox>
